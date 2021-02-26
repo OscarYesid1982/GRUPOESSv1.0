@@ -2,12 +2,134 @@
     <string name="app_name">GRUPO ESS</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_title">Grupo Ess</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_home">Inicio</string>
+    <string name="menu_carrito">Carrito de Compras</string>
+    <string name="menu_favoritos">Mis Favoritos</string>
+    <string name="menu_webSite">Visita nuestra Sitio</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <!-- String LoginActivity -->
+    <string name="Saludo_Inicio_Sesión">Iniciar Sesión</string>
+    <string name="txt_Email">Email</string>
+    <string name="txt_Contraseña">Contraseña</string>
+    <string name="Olvido_Contraseña">¿Olvidaste tu Contraseña?</string>
+    <string name="Boton_InicioSesion">Iniciar Sesión</string>
+    <string name="Boton_CrearCuenta">Crear una cuenta</string>
+    <string name="Boton_Condiciones">Al crear una cuenta nueva, estás de acuerdo con las</string>
+    <string name="Boton_Condiciones2">Condiciones de uso y Politicas de provacidad</string>
+
+    <!-- String RegistroActivity -->
+    <string name="Registrate">Regístrate</string>
+    <string name="registro_Nombre">Nombre</string>
+    <string name="registro_Apellido">Apelidos</string>
+    <string name="registro_Direccion_Email">Dirección de email</string>
+    <string name="registro_Contraseña">Contraseña</string>
+    <string name="registro_TienesCuenta">¿Tienes una cuenta? Inicia Sesión</string>
+    <string name="registro_MensajeContraseña">La contraseña debe tener mínimo 7 caracteres</string>
+
+    <string name="prefs_file">com.grupoess.grupoess.PREFERENCE_FILE_KEY</string>
+
+    <string-array name="opciones_Mes">
+
+        <item>Elija mes</item>
+        <item>Enero</item>
+        <item>Febrero</item>
+        <item>Marzo</item>
+        <item>Abril</item>
+        <item>Mayo</item>
+        <item>Junio</item>
+        <item>Julio</item>
+        <item>Agosto</item>
+        <item>Septiembre</item>
+        <item>Octubre</item>
+        <item>Noviembre</item>
+        <item>Diciembre</item>
+
+    </string-array>
+    <string-array name="opciones_Dia">
+
+        <item>Elija día</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+
+    </string-array>
+    <string-array name="opciones_Cantidad">
+
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+
+    </string-array>
+
+
 </resources>

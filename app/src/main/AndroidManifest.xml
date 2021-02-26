@@ -1,24 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.grupoess.grupoess">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_logo_app"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GRUPOESS">
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:name=".ui.productos.Historico_Compras_Activity"
+            android:theme="@style/Theme.GRUPOESS.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ui.carrito.Historico_Carrito"
+            android:theme="@style/Theme.GRUPOESS.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ui.login.Datos_Usuario"
+            >
+        </activity>
+        <activity android:name=".ui.home.HomeActivity"
+            android:theme="@style/Theme.GRUPOESS.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ui.login.RegistroActivity"
+            android:theme="@style/Theme.GRUPOESS.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:theme="@style/Theme.GRUPOESS.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ui.productos.Buscar_Productos"
+            android:theme="@style/Theme.GRUPOESS.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ui.productos.Productos"
+            android:theme="@style/Theme.GRUPOESS.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ui.productos.Seleccion_Producto"
+            android:theme="@style/Theme.GRUPOESS.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ui.carrito.Carrito"
+            android:theme="@style/Theme.GRUPOESS.NoActionBar">
+        </activity>
+        <activity
+            android:name=".SplashActivity"
             android:theme="@style/Theme.GRUPOESS.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.GRUPOESS.NoActionBar" />
+        <service
+            android:name=".firebase.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

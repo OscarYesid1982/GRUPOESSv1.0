@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/Car"
+        android:icon="@drawable/ic_shopping_cart"
+        android:title="Mis Compras"
+        android:visible="true"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/Search"
+        android:icon="@drawable/ic_search"
+        android:title="Buscar"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        app:showAsAction="always|collapseActionView"
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
+
+    <item
+        android:id="@+id/detail"
+        android:title="detalles"
+        >
+
+        <menu>
+            <item
+                android:id="@+id/Usuario"
+                android:icon="@drawable/ic_perfil"
+                android:title="Mi Cuenta"
+                android:visible="true"
+                app:showAsAction="always" />
+
+            <item
+                android:id="@+id/HistoricoCompras"
+                android:icon="@android:drawable/btn_star_big_on"
+                android:title="Mis compras"
+                android:visible="true"
+                app:showAsAction="always" />
+        </menu>
+
+
+
+    </item>
+
 </menu>

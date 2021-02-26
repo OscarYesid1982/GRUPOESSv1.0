@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="195dp"
+    app:layout_constraintCircleRadius="2dp"
+    android:orientation="horizontal"
+    android:gravity="center_horizontal">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardv1"
+        android:layout_width="180dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="10dp"
+        android:layout_height="190dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_marginStart="5dp"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="188dp"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/Imageview_Producto_Producto"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@mipmap/ic_launcher"
+                android:layout_gravity="center"
+                android:background="@drawable/bordeimagenes"
+                android:padding="2dp"/>
+
+            <TextView
+                android:id="@+id/NombreProducto_Producto"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Texto Prueba"/>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardv2"
+        android:layout_width="180dp"
+        android:layout_marginTop="1dp"
+        android:layout_margin="3dp"
+        android:layout_height="190dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginStart="5dp"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="188dp"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/Imageview_Producto_Producto2"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@mipmap/ic_launcher"
+                android:layout_gravity="center"
+                android:background="@drawable/bordeimagenes"
+                android:padding="2dp"/>
+
+            <TextView
+                android:id="@+id/NombreProducto_Producto2"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Texto Prueba"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

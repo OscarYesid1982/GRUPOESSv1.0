@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F8F8"
+    tools:context=".ui.login.Datos_Usuario">
+
+    <LinearLayout
+        android:id="@+id/linear_DU"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="vertical"
+        android:background="@color/dark_blue"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/du_imagenPerfil"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:padding="5dp"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/du_scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="125dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_marginStart="20dp"
+                android:textColor="@color/dark_blue"
+                android:text="Correo Registrado"/>
+            <TextView
+                android:id="@+id/du_CorreoUsuario"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:hint="Correo Usuario"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="@color/dark_blue"
+                android:paddingTop="1dp"
+                android:textSize="15sp"
+                android:layout_marginStart="20dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginStart="20dp"
+                android:textColor="@color/dark_blue"
+                android:text="Nombres"/>
+            <EditText
+                android:id="@+id/du_nombreUsuario"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="1dp"
+                android:textSize="15sp"
+                android:layout_marginStart="20dp"
+                android:hint="Ingrese su nombre"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginStart="20dp"
+                android:textColor="@color/dark_blue"
+                android:text="Apellidos"/>
+            <EditText
+                android:id="@+id/du_apellidoUsuario"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="1dp"
+                android:textSize="15sp"
+                android:layout_marginStart="20dp"
+                android:hint="Ingrese sus apellidos"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/dark_blue"
+                android:textSize="18sp"
+
+                android:layout_marginStart="20dp"
+                android:text="Celular"/>
+
+            <EditText
+                android:id="@+id/du_celularUsuario"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="1dp"
+                android:textSize="15sp"
+                android:layout_marginStart="20dp"
+                android:hint="Ingrese número de celular"
+                android:inputType="phone"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginStart="20dp"
+                android:textColor="@color/dark_blue"
+                android:text="Dirección entrega"/>
+            <EditText
+                android:id="@+id/du_direccionUsuario"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="1dp"
+                android:textSize="15sp"
+                android:layout_marginStart="20dp"
+                android:hint="Ingrese su dirección"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/dark_blue"
+                android:layout_marginStart="20dp"
+                android:text="Cumpleaños"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/bordeimagenes">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/dark_blue"
+                        android:layout_marginStart="20dp"
+                        android:text="Mes"/>
+
+                    <Spinner
+                        android:id="@+id/du_spinnerMes"
+                        android:layout_width="150dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="2dp"
+                        android:spinnerMode="dialog"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/bordeimagenes">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/dark_blue"
+                        android:layout_marginStart="20dp"
+                        android:text="Día"/>
+
+                    <Spinner
+                        android:id="@+id/du_spinnerDia"
+                        android:layout_width="150dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="2dp"
+                        android:spinnerMode="dialog"/>
+
+                </LinearLayout>
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginStart="20dp"
+                android:textColor="@color/dark_blue"
+                android:text="Sexo"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp">
+
+                    <RadioGroup
+                        android:id="@+id/du_RadioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginEnd="89dp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:background="@drawable/bordeimagenes">
+
+                        <RadioButton
+                            android:id="@+id/du_radio_H"
+                            android:layout_width="95dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="20dp"
+                            android:textColor="@color/dark_blue"
+                            android:text="Hombre"/>
+                        <RadioButton
+                            android:id="@+id/du_radio_M"
+                            android:layout_width="95dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="20dp"
+                            android:textColor="@color/dark_blue"
+                            android:text="Mujer"/>
+
+
+                    </RadioGroup>
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/du_actualizarDatos"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:text="Actualizar datos"
+                android:layout_marginTop="-35dp"
+                android:layout_gravity="center"
+                android:textSize="20dp"                />
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

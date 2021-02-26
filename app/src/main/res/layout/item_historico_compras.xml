@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/item_linear_Historico_Compras"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_marginTop="1dp"
+    app:cardCornerRadius="15dp"
+    android:layout_margin="5dp"
+    android:layout_marginStart="25dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/item_hist_fechaCompra"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="5dp"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/dark_blue"
+                    android:maxLines="1"
+                    android:layout_width="155dp"
+                    android:layout_height="25dp"
+                    android:text="Texto Prueba"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="5dp"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/divider_gray"
+                        android:layout_width="95dp"
+                        android:layout_height="25dp"
+                        android:text="N° Productos:"/>
+
+                    <TextView
+                        android:id="@+id/item_hist_cantProd"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="5dp"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:textColor="@color/divider_gray"
+                        android:maxLines="1"
+                        android:layout_width="95dp"
+                        android:layout_height="25dp"/>
+
+                    <TextView
+                        android:id="@+id/item_hist_valorCompra"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="5dp"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="@color/dark_blue"
+                        android:layout_width="125dp"
+                        android:layout_height="25dp"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+</androidx.cardview.widget.CardView>

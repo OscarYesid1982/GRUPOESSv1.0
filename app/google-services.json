@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "840219229490",
+    "project_id": "tienda-grupo-ess-31dc9",
+    "storage_bucket": "tienda-grupo-ess-31dc9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840219229490:android:32a92764ae9ba4cf6eab2b",
+        "android_client_info": {
+          "package_name": "com.grupoess.grupoess"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840219229490-29vm0pqikqg2516ft20eha38ojq9tq0f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBzB1yWm5H73Z7GzCEFOrwoCr1Av4b2d0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840219229490-29vm0pqikqg2516ft20eha38ojq9tq0f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

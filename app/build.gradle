@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'com.google.gms.google-services'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -39,13 +41,52 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'androidx.navigation:navigation-fragment:2.3.2'
-    implementation 'androidx.navigation:navigation-ui:2.3.2'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
-    testImplementation 'junit:junit:4.+'
+    implementation 'com.google.firebase:firebase-messaging:21.0.1'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'com.google.firebase:firebase-auth:20.0.1'
+    implementation 'com.google.firebase:firebase-analytics:18.0.1'
+    testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //Implementación Volley
+    implementation 'com.android.volley:volley:1.1.0'
+
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation platform('com.google.firebase:firebase-bom:26.2.0')
+    implementation platform('com.google.firebase:firebase-bom:26.2.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'com.facebook.android:facebook-android-sdk:4.42.0z'
+
+
+    implementation 'com.google.firebase:firebase-messaging-ktx'
+
+
+
+
+    //Cardview
+    implementation 'androidx.cardview:cardview:1.0.0'
+    //Recycicleview
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    //Implementacion Libreria Picasso
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
+    //implementacion extra
+    implementation 'androidx.viewpager2:viewpager2:1.1.0-alpha01'
+    implementation 'androidx.viewpager:viewpager:1.0.0'
+    implementation 'com.github.bumptech.glide:glide:3.8.0'
+    implementation 'com.google.android.material:material:1.3.0-beta01'
+    //implementacion FabMenu
+    implementation 'com.getbase:floatingactionbutton:1.10.1'
+
+
+
 }

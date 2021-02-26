@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/item_linear"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="110dp"
+    android:layout_marginTop="2dp"
+    android:orientation="vertical"
+    android:layout_margin="2dp"
+    app:cardCornerRadius="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="2dp">
+
+            <ImageView
+                android:id="@+id/Imageview_Producto"
+                android:layout_width="90dp"
+                android:src="@mipmap/ic_launcher"
+                android:layout_height="70dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bordeimagenes"
+                android:padding="3dp"
+                android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/NombreProducto"
+            android:layout_gravity="center"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:layout_marginStart="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="Texto Prueba"/>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.LoginActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/login_LinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-25dp"
+        app:layout_goneMarginTop="0dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/login_LogoImagen"
+            android:layout_width="match_parent"
+            android:layout_height="222dp"
+            android:src="@drawable/logo2_app"/>
+
+        <TextView
+            android:id="@+id/login_TituloActividad"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="-15dp"
+            android:gravity="center"
+            android:text="@string/Saludo_Inicio_Sesión"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/login_Email"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="24dp"
+            android:gravity="start"
+            android:hint="@string/txt_Email"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="5dp"/>
+        <EditText
+            android:id="@+id/login_Contrasena"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="24dp"
+            android:gravity="start"
+            android:hint="@string/txt_Contraseña"
+            android:inputType="textPassword"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/login_OlvidasteContrasena"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="right"
+            android:text="@string/Olvido_Contraseña"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/login_botonIniciosesion"
+            android:layout_width="307dp"
+            android:layout_height="50dp"
+            android:textAllCaps="false"
+            android:background="@drawable/borde_boton_facebook"
+            android:layout_gravity="center"
+            android:text="@string/Boton_InicioSesion"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center"
+            android:src="@drawable/linea_login"/>
+
+
+<!--
+            <Button
+                android:id="@+id/login_BotonFacebook"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:padding="16dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="38dp"
+                android:background="@drawable/borde_boton_facebook"
+                android:foreground="@drawable/boton_facebook" />
+-->
+
+            <Button
+                android:id="@+id/login_BotonGoogle"
+                android:layout_width="160dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="100dp"
+                android:background="@drawable/bordeimagenes"
+                android:foreground="@drawable/boton_google" />
+
+
+        <Button
+            android:id="@+id/login_botonCrearCuenta"
+            android:layout_width="307dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:background="@drawable/borde_boton_crearcuenta"
+            android:layout_gravity="center"
+            android:text="@string/Boton_CrearCuenta"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/login_Condiciones"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center"
+            android:text="@string/Boton_Condiciones"
+            android:textColor="#000000"
+            android:textSize="14sp"/>
+        <TextView
+            android:id="@+id/login_Condiciones2"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center"
+            android:text="@string/Boton_Condiciones2"
+            android:textColor="#0575aa"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
