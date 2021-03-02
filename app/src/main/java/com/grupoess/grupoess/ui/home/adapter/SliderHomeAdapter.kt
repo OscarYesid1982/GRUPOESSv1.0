@@ -45,5 +45,7 @@ class SliderHomeAdapter (private val introSlides: List<IntroSlide>):
                 imageIcon.setImageBitmap(BitmapFactory.decodeByteArray(imageAsBytes,0,imageAsBytes.size))
             }
         }
+
 }
+
 

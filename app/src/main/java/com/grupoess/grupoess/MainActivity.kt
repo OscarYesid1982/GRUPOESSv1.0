@@ -238,7 +238,7 @@ class MainActivity : AppCompatActivity() {
         val postRequest: StringRequest = object : StringRequest(Request.Method.POST, url,
             Response.Listener { response -> // response
                 //el texto que viene lo convertimos de string a json
-                covertir_json_ImagenProducto(response)
+                covertir_jsonSlider(response)
             },
             Response.ErrorListener { // error
                 Log.i(
@@ -255,7 +255,7 @@ class MainActivity : AppCompatActivity() {
         }
         queue.add(postRequest)
     }
-    /*
+
     private fun covertir_jsonSlider(response: String?) {
         val data_ini = JSONObject(response)
         val data = JSONArray(data_ini["data"].toString())
@@ -289,8 +289,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-     */
 
+
+    /*
     private fun covertir_json_ImagenProducto(response: String?) {
         val data_ini = JSONObject(response)
         val data = JSONArray(data_ini["data"].toString())
@@ -300,9 +301,11 @@ class MainActivity : AppCompatActivity() {
                         data_category["Imagen"].toString()
                 )
         );
-        Log.i("falla", list.toString())
+
         for (i in 1 until data.length()) {
             data_category = JSONObject(data.getJSONObject(i).toString())
+
+            Log.i("Error",  data_category["Imagen"].toString())
 
             list.addAll(
                     listOf(
@@ -313,10 +316,13 @@ class MainActivity : AppCompatActivity() {
             )
 
         }
+        Log.i("falla", list.toString())
 
         val introSliderAdapter = ImagenAdaptadorSeleccionProducto(list, this)
         // Config Slider Home
         slider_Seleccion_Producto.adapter = introSliderAdapter
     }
+
+     */
 
 }

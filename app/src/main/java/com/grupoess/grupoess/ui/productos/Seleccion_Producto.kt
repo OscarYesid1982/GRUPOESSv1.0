@@ -58,6 +58,7 @@ class Seleccion_Producto : AppCompatActivity() {
 
         productosSimilares()
 
+        //traer_slider()
 
         var cat = Seleccion();
         traer_producto_seleccionado(cat.get_id_producto())
@@ -176,7 +177,8 @@ class Seleccion_Producto : AppCompatActivity() {
                     ;
              */
 
-            traer_ImagenProducto()
+
+            //traer_ImagenProducto()
 
 
             seleccion_producto_valor_Producto.text = data_utf8.get_text("$ " + data_product["precio"].toString())
@@ -360,6 +362,7 @@ class Seleccion_Producto : AppCompatActivity() {
         selProducto_recycler.adapter = ImagenAdaptadorSeleccionProducto(data_arraylist, this)
     }
  */
+    /*
     private fun traer_ImagenProducto(){
         var cat = Seleccion();
         //se consulta el servicio
@@ -368,7 +371,7 @@ class Seleccion_Producto : AppCompatActivity() {
         val postRequest: StringRequest = object : StringRequest(Request.Method.POST, url,
                 Response.Listener { response -> // response
                     //el texto que viene lo convertimos de string a json
-                    covertir_json_ImagenProducto(response)
+                    covertir_jsonSlider(response)
                 },
                 Response.ErrorListener { // error
                     Log.i(
@@ -386,7 +389,44 @@ class Seleccion_Producto : AppCompatActivity() {
         }
         queue.add(postRequest)
     }
+    private fun covertir_jsonSlider(response: String?) {
+        val data_ini = JSONObject(response)
+        val data = JSONArray(data_ini["data"].toString())
+        var data_categpry = JSONObject(data.getJSONObject(0).toString())
 
+        Log.i("Dataa", data.getJSONObject(0).toString())
+
+
+        var list = mutableListOf(
+            IntroSlide(
+                "Imagen Slider 1",
+                "Descripción de la primera imagen como Slider",
+                data_categpry["imagen"].toString()
+            )
+        );
+
+        for (i in 1 until data.length()) {
+
+            data_categpry = JSONObject(data.getJSONObject(i).toString())
+
+            list.addAll(
+                listOf(
+                    IntroSlide(
+                        "Imagen Slider 1",
+                        "Descripción de la primera imagen como Slider",
+                        data_categpry["imagen"].toString()
+                    )
+                )
+            )
+        }
+
+        val introSliderAdapter = SliderHomeAdapter(list)
+        // Config Slider Home
+        introSliderViewPager2.adapter = introSliderAdapter
+
+
+    }
+    /*
     private fun covertir_json_ImagenProducto(response: String?) {
         val data_ini = JSONObject(response)
         val data = JSONArray(data_ini["data"].toString())
@@ -412,6 +452,68 @@ class Seleccion_Producto : AppCompatActivity() {
         val introSliderAdapter = ImagenAdaptadorSeleccionProducto(list, this)
         // Config Slider Home
         slider_Seleccion_Producto.adapter = introSliderAdapter
+
+
+    }
+
+     */
+
+     */
+
+    private fun traer_slider(){
+        //se consulta el servicio
+        var queue = Volley.newRequestQueue(this)
+        var url = "https://imbcol.com/grupoess/traer_slider.php"
+        val postRequest: StringRequest = object : StringRequest(Request.Method.POST, url,
+            Response.Listener { response -> // response
+                //el texto que viene lo convertimos de string a json
+                covertir_jsonSlider(response)
+            },
+            Response.ErrorListener { // error
+                Log.i(
+                    "Alerta",
+                    "Error al intentar cargar las variables contacte con el administrador"
+                )
+            }
+        ) {
+            override fun getParams(): Map<String, String> {
+                val params: MutableMap<String, String> = HashMap()
+                params["clave"] = "R3J1cG9Fc3M"
+                return params
+            }
+        }
+        queue.add(postRequest)
+    }
+
+    private fun covertir_jsonSlider(response: String?) {
+        val data_ini = JSONObject(response)
+        val data = JSONArray(data_ini["data"].toString())
+        var data_categpry = JSONObject(data.getJSONObject(0).toString())
+        var list = mutableListOf(
+            IntroSlide(
+                "Imagen Slider 1",
+                "Descripción de la primera imagen como Slider",
+                data_categpry["Imagen"].toString()
+            )
+        );
+
+        for (i in 1 until data.length()) {
+            data_categpry = JSONObject(data.getJSONObject(i).toString())
+
+            list.addAll(
+                listOf(
+                    IntroSlide(
+                        "Imagen Slider 1",
+                        "Descripción de la primera imagen como Slider",
+                        data_categpry["Imagen"].toString()
+                    )
+                )
+            )
+        }
+
+        val introSliderAdapter = SliderHomeAdapter(list)
+        // Config Slider Home
+        introSliderViewPager2.adapter = introSliderAdapter
 
 
     }
