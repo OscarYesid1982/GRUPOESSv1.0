@@ -11,15 +11,12 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.*
-import com.example.grupoess.adapater.CategoriaAdaptador
 import com.example.grupoess.adapater.CategoriaAdaptadorSeleccionProducto
-import com.example.grupoess.adapater.ImagenAdaptadorSeleccionProducto
 import com.example.grupoess.adapater.ProductosSimilaresAdaptador
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.grupoess.grupoess.R
@@ -28,13 +25,8 @@ import com.grupoess.grupoess.ui.carrito.Carrito
 import com.grupoess.grupoess.ui.home.adapter.IntroSlide
 import com.grupoess.grupoess.ui.home.adapter.SliderHomeAdapter
 import com.grupoess.grupoess.ui.login.Datos_Usuario
-import com.grupoess.grupoess.ui.productos.adapter.ImagenSeleccionProductoSlide
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.seleccion_producto.*
-import kotlinx.android.synthetic.main.sliderhome.*
 import kotlinx.android.synthetic.main.sliderhome.introSliderViewPager2
-import kotlinx.android.synthetic.main.sliderproductos.*
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -76,14 +68,14 @@ class Seleccion_Producto : AppCompatActivity() {
                 queue.getCache().clear();
                 var url = "https://imbcol.com/grupoess/registrar_seleccion_usuario.php"
                 val postRequest: StringRequest = object : StringRequest(
-                        Request.Method.POST, url,
-                        Response.Listener { response -> // response
-                            //el texto que viene lo convertimos de string a json
-                            comprobar_respuesta(response);
-                        },
-                        Response.ErrorListener { // error
-                            Log.i("Alerta", "Error al intentar cargar las variables contacte con el administrador")
-                        }
+                    Request.Method.POST, url,
+                    Response.Listener { response -> // response
+                        //el texto que viene lo convertimos de string a json
+                        comprobar_respuesta(response);
+                    },
+                    Response.ErrorListener { // error
+                        Log.i("Alerta", "Error al intentar cargar las variables contacte con el administrador")
+                    }
                 ) {
                     override fun getParams(): Map<String, String> {
                         val params: MutableMap<String, String> = HashMap()
@@ -99,7 +91,7 @@ class Seleccion_Producto : AppCompatActivity() {
             }
             else{
                 Toast.makeText(this, "Debe seleccionar cantidad de producto a comprar",
-                Toast.LENGTH_SHORT).show()
+                    Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -140,14 +132,14 @@ class Seleccion_Producto : AppCompatActivity() {
         queue.getCache().clear();
         var url = "https://imbcol.com/grupoess/traer_producto_seleccion.php"
         val postRequest: StringRequest = object : StringRequest(
-                Request.Method.POST, url,
-                Response.Listener { response -> // response
-                    //el texto que viene lo convertimos de string a json
-                    covertir_json(response, queue)
-                },
-                Response.ErrorListener { // error
-                    Log.i("Alerta", "Error al intentar cargar las variables contacte con el administrador")
-                }
+            Request.Method.POST, url,
+            Response.Listener { response -> // response
+                //el texto que viene lo convertimos de string a json
+                covertir_json(response, queue)
+            },
+            Response.ErrorListener { // error
+                Log.i("Alerta", "Error al intentar cargar las variables contacte con el administrador")
+            }
         ) {
             override fun getParams(): Map<String, String> {
                 val params: MutableMap<String, String> = HashMap()
@@ -173,11 +165,10 @@ class Seleccion_Producto : AppCompatActivity() {
                     .load(data_product["imagen"].toString())
                     .error(R.drawable.ic_launcher_background) //en caso que la url no sea válida muestro otra imagen
                     .into(seleccion_producto_id_imagen)
-
                     ;
              */
 
-
+            traer_slider()
             //traer_ImagenProducto()
 
 
@@ -191,12 +182,12 @@ class Seleccion_Producto : AppCompatActivity() {
             spinnerCantidad.adapter = adaptadorCantidad
 
             spinnerCantidad.onItemSelectedListener = object :
-                    AdapterView.OnItemSelectedListener{
+                AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(
-                        parent: AdapterView<*>?,
-                        view: View?,
-                        position: Int,
-                        id: Long
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
                 ) {
                     //Toast.makeText(this@Seleccion_Producto, opcionCantidad[position],Toast.LENGTH_SHORT).show()
                     if(opcionCantidad[position] != "Elija cantidad") {
@@ -220,17 +211,17 @@ class Seleccion_Producto : AppCompatActivity() {
         queue.getCache().clear();
         var url = "https://imbcol.com/grupoess/traer_productos_similares.php"
         val postRequest: StringRequest = object : StringRequest(
-                Request.Method.POST, url,
-                Response.Listener { response -> // response
-                    //el texto que viene lo convertimos de string a json
-                    covertir_json(response)
-                },
-                Response.ErrorListener { // error
-                    Log.i(
-                            "Alerta",
-                            "Error al intentar cargar las variables contacte con el administrador"
-                    )
-                }
+            Request.Method.POST, url,
+            Response.Listener { response -> // response
+                //el texto que viene lo convertimos de string a json
+                covertir_json(response)
+            },
+            Response.ErrorListener { // error
+                Log.i(
+                    "Alerta",
+                    "Error al intentar cargar las variables contacte con el administrador"
+                )
+            }
         ) {
             override fun getParams(): Map<String, String> {
                 val params: MutableMap<String, String> = HashMap()
@@ -253,12 +244,12 @@ class Seleccion_Producto : AppCompatActivity() {
             val data_categpry = JSONObject(data.getJSONObject(i).toString())
 
             data_arraylist.add(
-                    Categorias_object(
-                            data_categpry["imagen"].toString(),
-                            data_utf8.get_text(data_categpry["name"].toString()),
-                            data_categpry["id_wordpress"].toString().toInt(),
-                            1
-                    )
+                Categorias_object(
+                    data_categpry["imagen"].toString(),
+                    data_utf8.get_text(data_categpry["name"].toString()),
+                    data_categpry["id_wordpress"].toString().toInt(),
+                    1
+                )
             )
 
         }
@@ -341,17 +332,14 @@ class Seleccion_Producto : AppCompatActivity() {
         }
         queue.add(postRequest)
     }
-
     @SuppressLint("WrongConstant")
     private fun covertir_json_ImagenProducto2(response: String) {
         var data_arraylist: ArrayList<Imagenes_SeleccionProducto> = ArrayList()
         val data_ini = JSONObject(response)
         val data = JSONArray(data_ini["data"].toString())
         var data_utf8 = convertir_utd8();
-
         for (i in 0 until data.length()) {
             val data_category = JSONObject(data.getJSONObject(i).toString())
-
             data_arraylist.add(
                     Imagenes_SeleccionProducto(
                             data_category["imagen"].toString()
@@ -393,10 +381,7 @@ class Seleccion_Producto : AppCompatActivity() {
         val data_ini = JSONObject(response)
         val data = JSONArray(data_ini["data"].toString())
         var data_categpry = JSONObject(data.getJSONObject(0).toString())
-
         Log.i("Dataa", data.getJSONObject(0).toString())
-
-
         var list = mutableListOf(
             IntroSlide(
                 "Imagen Slider 1",
@@ -404,11 +389,8 @@ class Seleccion_Producto : AppCompatActivity() {
                 data_categpry["imagen"].toString()
             )
         );
-
         for (i in 1 until data.length()) {
-
             data_categpry = JSONObject(data.getJSONObject(i).toString())
-
             list.addAll(
                 listOf(
                     IntroSlide(
@@ -419,12 +401,9 @@ class Seleccion_Producto : AppCompatActivity() {
                 )
             )
         }
-
         val introSliderAdapter = SliderHomeAdapter(list)
         // Config Slider Home
         introSliderViewPager2.adapter = introSliderAdapter
-
-
     }
     /*
     private fun covertir_json_ImagenProducto(response: String?) {
@@ -436,10 +415,8 @@ class Seleccion_Producto : AppCompatActivity() {
                         data_category["imagen"].toString()
                 )
         );
-
         for (i in 1 until data.length()) {
             data_category = JSONObject(data.getJSONObject(i).toString())
-
             list.addAll(
                     listOf(
                             ImagenSeleccionProductoSlide(
@@ -448,22 +425,19 @@ class Seleccion_Producto : AppCompatActivity() {
                     )
             )
         }
-
         val introSliderAdapter = ImagenAdaptadorSeleccionProducto(list, this)
         // Config Slider Home
         slider_Seleccion_Producto.adapter = introSliderAdapter
-
-
     }
-
      */
-
      */
 
     private fun traer_slider(){
+        var cat = Seleccion();
+
         //se consulta el servicio
         var queue = Volley.newRequestQueue(this)
-        var url = "https://imbcol.com/grupoess/traer_slider.php"
+        var url = "https://imbcol.com/grupoess/traer_imagen_seleccion.php"
         val postRequest: StringRequest = object : StringRequest(Request.Method.POST, url,
             Response.Listener { response -> // response
                 //el texto que viene lo convertimos de string a json
@@ -479,6 +453,7 @@ class Seleccion_Producto : AppCompatActivity() {
             override fun getParams(): Map<String, String> {
                 val params: MutableMap<String, String> = HashMap()
                 params["clave"] = "R3J1cG9Fc3M"
+                params["id"] = cat.get_id_producto().toString()
                 return params
             }
         }
@@ -493,7 +468,7 @@ class Seleccion_Producto : AppCompatActivity() {
             IntroSlide(
                 "Imagen Slider 1",
                 "Descripción de la primera imagen como Slider",
-                data_categpry["Imagen"].toString()
+                data_categpry["imagen"].toString()
             )
         );
 
@@ -505,7 +480,7 @@ class Seleccion_Producto : AppCompatActivity() {
                     IntroSlide(
                         "Imagen Slider 1",
                         "Descripción de la primera imagen como Slider",
-                        data_categpry["Imagen"].toString()
+                        data_categpry["imagen"].toString()
                     )
                 )
             )

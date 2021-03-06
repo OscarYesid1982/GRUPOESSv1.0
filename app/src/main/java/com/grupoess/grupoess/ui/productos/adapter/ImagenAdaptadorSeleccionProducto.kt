@@ -15,7 +15,9 @@ import com.grupoess.grupoess.ui.productos.adapter.ImagenSeleccionProductoSlide
 import com.squareup.picasso.Picasso
 
 
-class ImagenAdaptadorSeleccionProducto(val datos: List<ImagenSeleccionProductoSlide>, val context:Context) : RecyclerView.Adapter<ImagenAdaptadorSeleccionProducto.ViewHolder>() {
+class ImagenAdaptadorSeleccionProducto(val datos: List<ImagenSeleccionProductoSlide>,
+                                       val context:Context)
+    :RecyclerView.Adapter<ImagenAdaptadorSeleccionProducto.ViewHolder>() {
 
     override fun getItemCount() = datos.size
 
@@ -30,7 +32,9 @@ class ImagenAdaptadorSeleccionProducto(val datos: List<ImagenSeleccionProductoSl
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view:View = LayoutInflater.from(parent.context).inflate(R.layout.item_imegen_seleccion_producto, parent, false);
+        val view:View = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_imegen_seleccion_producto,
+            parent, false);
         return ViewHolder(view)
     }
 

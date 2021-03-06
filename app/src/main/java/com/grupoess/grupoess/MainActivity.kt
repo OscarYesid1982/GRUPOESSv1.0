@@ -7,18 +7,15 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.viewpager2.widget.ViewPager2
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.grupoess.adapater.CategoriaAdaptador
-import com.example.grupoess.adapater.ImagenAdaptadorSeleccionProducto
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.grupoess.grupoess.adapater.ProductosAdaptador2
@@ -32,10 +29,8 @@ import com.grupoess.grupoess.ui.home.adapter.SliderHomeAdapter
 import com.grupoess.grupoess.ui.login.Datos_Usuario
 import com.grupoess.grupoess.ui.productos.Buscar_Productos
 import com.grupoess.grupoess.ui.productos.Historico_Compras_Activity
-import com.grupoess.grupoess.ui.productos.adapter.ImagenSeleccionProductoSlide
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.sliderhome.*
-import kotlinx.android.synthetic.main.sliderproductos.*
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -110,7 +105,6 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-
      */
 
     private fun traer_categorias() {
@@ -149,13 +143,13 @@ class MainActivity : AppCompatActivity() {
         for (i in 0 until data.length()) {
             val data_categpry = JSONObject(data.getJSONObject(i).toString())
 
-                data_arraylist.add(
-                    Categorias_object(
-                        data_categpry["img"].toString(),
-                        data_utf8.get_text(data_categpry["name"].toString()),
-                        data_categpry["id_wordpress"].toString().toInt(),0
-                    )
+            data_arraylist.add(
+                Categorias_object(
+                    data_categpry["img"].toString(),
+                    data_utf8.get_text(data_categpry["name"].toString()),
+                    data_categpry["id_wordpress"].toString().toInt(),0
                 )
+            )
 
         }
 
@@ -213,15 +207,15 @@ class MainActivity : AppCompatActivity() {
             }
             else{
                 data_arraylist.add(
-                        Productos_object2(
-                                data_utf8.get_text(data_product["imagen"].toString()),
-                                data_utf8.get_text(data_product["name"].toString()),
-                                data_product["id_wordpress"].toString().toInt(),
-                                imagen,
-                                nombre,
-                                id.toInt()
+                    Productos_object2(
+                        data_utf8.get_text(data_product["imagen"].toString()),
+                        data_utf8.get_text(data_product["name"].toString()),
+                        data_product["id_wordpress"].toString().toInt(),
+                        imagen,
+                        nombre,
+                        id.toInt()
 
-                        )
+                    )
 
                 )
             }
@@ -285,44 +279,6 @@ class MainActivity : AppCompatActivity() {
         val introSliderAdapter = SliderHomeAdapter(list)
         // Config Slider Home
         introSliderViewPager2.adapter = introSliderAdapter
-
-
     }
-
-
-
-    /*
-    private fun covertir_json_ImagenProducto(response: String?) {
-        val data_ini = JSONObject(response)
-        val data = JSONArray(data_ini["data"].toString())
-        var data_category = JSONObject(data.getJSONObject(0).toString())
-        var list = mutableListOf(
-                ImagenSeleccionProductoSlide(
-                        data_category["Imagen"].toString()
-                )
-        );
-
-        for (i in 1 until data.length()) {
-            data_category = JSONObject(data.getJSONObject(i).toString())
-
-            Log.i("Error",  data_category["Imagen"].toString())
-
-            list.addAll(
-                    listOf(
-                            ImagenSeleccionProductoSlide(
-                                    data_category["Imagen"].toString()
-                            )
-                    )
-            )
-
-        }
-        Log.i("falla", list.toString())
-
-        val introSliderAdapter = ImagenAdaptadorSeleccionProducto(list, this)
-        // Config Slider Home
-        slider_Seleccion_Producto.adapter = introSliderAdapter
-    }
-
-     */
 
 }

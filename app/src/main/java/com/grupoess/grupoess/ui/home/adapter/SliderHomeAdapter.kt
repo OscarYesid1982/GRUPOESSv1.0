@@ -10,10 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.grupoess.grupoess.R
 
-import com.squareup.picasso.Picasso
-import java.lang.reflect.Array.get
-
-class SliderHomeAdapter (private val introSlides: List<IntroSlide>):
+class SliderHomeAdapter(private val introSlides: MutableList<IntroSlide>):
         RecyclerView.Adapter<SliderHomeAdapter.IntroSlideViewHolder>(){
 
 

@@ -80,7 +80,6 @@
           -->
             <include layout="@layout/sliderhome" />
 
-
         </LinearLayout>
         <TextView
             android:id="@+id/seleccion_producto_id_titulo"
