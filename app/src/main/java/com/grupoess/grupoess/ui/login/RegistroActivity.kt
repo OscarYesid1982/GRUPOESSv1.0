@@ -164,5 +164,4 @@ class RegistroActivity : AppCompatActivity() {
         val i = Intent(this, LoginActivity::class.java)
         startActivity(i)
     }
-
 }

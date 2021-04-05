@@ -31,6 +31,7 @@ import com.grupoess.grupoess.MainActivity
 import com.grupoess.grupoess.ProviderType
 import com.grupoess.grupoess.R
 import com.grupoess.grupoess.model.User
+import com.grupoess.grupoess.ui.SeleccionInico
 import com.grupoess.grupoess.ui.home.HomeActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.login_Condiciones2
@@ -47,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
 
         if (leer_user() == true){
 
-            val i = Intent(this, MainActivity::class.java)
+            val i = Intent(this, SeleccionInico::class.java)
             startActivity(i)
         }
 

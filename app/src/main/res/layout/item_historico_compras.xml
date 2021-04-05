@@ -42,7 +42,7 @@
                         android:textColor="@color/divider_gray"
                         android:layout_width="95dp"
                         android:layout_height="25dp"
-                        android:text="N° Productos:"/>
+                        android:text="@string/item_historico"/>
 
                     <TextView
                         android:id="@+id/item_hist_cantProd"

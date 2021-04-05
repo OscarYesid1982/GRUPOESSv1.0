@@ -42,6 +42,11 @@ class Carrito : AppCompatActivity(), AdapterView.OnItemClickListener{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.carrito_activity)
 
+        val spiOpcEntrega = findViewById<Spinner>(R.id.carrito_spinner)
+        val opcionEntrega = resources.getStringArray(R.array.opciones_entrega)
+        val adaptadorEntrega = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, opcionEntrega)
+        spiOpcEntrega.adapter = adaptadorEntrega
+
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
             val sendIntent = Intent()
@@ -143,10 +148,8 @@ class Carrito : AppCompatActivity(), AdapterView.OnItemClickListener{
                 this.finish()
             }
             else{
-                Log.i("aaa","https://imbcol.com/grupoess/pago.php?id="+u.get_id() )
-
+                //Log.i("aaa","https://imbcol.com/grupoess/pago.php?id="+u.get_id() )
                 val uri: Uri = Uri.parse("https://imbcol.com/grupoess/pago.php?id="+u.get_id())
-
                 val intent = Intent(Intent.ACTION_VIEW, uri)
                 startActivity(intent)
             }

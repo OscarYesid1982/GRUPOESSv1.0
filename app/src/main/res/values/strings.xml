@@ -22,11 +22,14 @@
     <string name="login_failed">"Login failed"</string>
 
     <!-- String LoginActivity -->
+    <string name="Saludo_Seleccion_Opcion">Seleccione una opción</string>
     <string name="Saludo_Inicio_Sesión">Iniciar Sesión</string>
     <string name="txt_Email">Email</string>
     <string name="txt_Contraseña">Contraseña</string>
     <string name="Olvido_Contraseña">¿Olvidaste tu Contraseña?</string>
     <string name="Boton_InicioSesion">Iniciar Sesión</string>
+    <string name="Ir_Home">Ir al inicio</string>
+    <string name="Ir_Compras">Ir a historico de compras</string>
     <string name="Boton_CrearCuenta">Crear una cuenta</string>
     <string name="Boton_Condiciones">Al crear una cuenta nueva, estás de acuerdo con las</string>
     <string name="Boton_Condiciones2">Condiciones de uso y Politicas de provacidad</string>
@@ -42,6 +45,34 @@
 
     <string name="prefs_file">com.grupoess.grupoess.PREFERENCE_FILE_KEY</string>
 
+    <!-- String seleccion_producto -->
+    <string name="selec_producto">Productos Relacionados</string>
+    <string name="selec_producto_nombre_producto">Nombre Producto</string>
+    <string name="selec_producto_precio_unidad">Valor Unidad</string>
+    <string name="selec_producto_cantidad">Cantidad</string>
+    <string name="selec_producto_seleccione_cantidad">Seleccione Cantidad</string>
+    <string name="selec_producto_valor_total">Valor Total</string>
+    <string name="selec_producto_boton_comprar">Comprar</string>
+
+    <!-- String Productos -->
+    <string name="producto_producto_relacionado">Productos Relacionados</string>
+    <string name="producto_nuestros_productos">Nuestros Productos</string>
+
+    <!-- String item_historico -->
+    <string name="item_historico">N° Productos</string>
+
+    <!-- String carrito -->
+    <string name="carrito_productos_carrito">Productos en el carrito</string>
+    <string name="carrito_envio">Envio:</string>
+    <string name="carrito_enviar_a">Enviar a:</string>
+    <string name="carrito_entrega">Metodo de Entrega:</string>
+    <string name="carrito_detalles_pedido">Detalles del pedido</string>
+    <string name="carrito_total_del_producto">Total de Productos</string>
+    <string name="carrito_valor_impuestos">Valor Impuestos</string>
+    <string name="carrito_valor_pedido">Valor Total</string>
+    <string name="carrito_boton_comprar">Comprar</string>
+
+    <!-- String Spinner -->
     <string-array name="opciones_Mes">
 
         <item>Elija mes</item>
@@ -57,7 +88,6 @@
         <item>Octubre</item>
         <item>Noviembre</item>
         <item>Diciembre</item>
-
     </string-array>
     <string-array name="opciones_Dia">
 
@@ -129,6 +159,14 @@
         <item>30</item>
         <item>31</item>
 
+    </string-array>
+    <string-array name="opciones_entrega">
+        <item>Elija opción de depacho</item>
+        <item>En domicilio</item>
+        <item>Carry</item>
+        <item>Servientrega</item>
+        <item>DHL</item>
+        <item>Uber</item>
     </string-array>
 
 

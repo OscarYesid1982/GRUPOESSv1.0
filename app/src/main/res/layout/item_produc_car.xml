@@ -39,7 +39,7 @@
                     android:maxLines="1"
                     android:layout_width="125dp"
                     android:layout_height="25dp"
-                    android:text="Texto Prueba"/>
+                    android:text=""/>
 
 
                 <TextView
@@ -52,7 +52,7 @@
                     android:textColor="@color/divider_gray"
                     android:layout_width="125dp"
                     android:layout_height="25dp"
-                    android:text="Cantidad"/>
+                    android:text=""/>
 
             </LinearLayout>
 
@@ -73,7 +73,7 @@
             android:textColor="@color/dark_blue"
             android:layout_width="125dp"
             android:layout_height="25dp"
-            android:text="Valor $ Prueba"/>
+            android:text=""/>
         <TextView
             android:id="@+id/item_produc_car_Cantidad"
             android:layout_marginStart="10dp"
@@ -85,7 +85,7 @@
             android:layout_width="125dp"
             android:layout_height="25dp"
             android:gravity="center"
-            android:text="Cant"/>
+            android:text=""/>
 
 
     </LinearLayout>
@@ -96,9 +96,10 @@
 
     <ImageButton
         android:id="@+id/car_eliminar_producto"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:background="@drawable/x"
+        android:padding="5dp"
         android:layout_gravity="end"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="10dp"/>

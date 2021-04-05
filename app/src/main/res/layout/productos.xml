@@ -41,7 +41,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:text="Productos relacionados"
+            android:text="@string/producto_producto_relacionado"
             android:textStyle="bold"
             android:textSize="20sp"
             android:gravity="center"
@@ -60,7 +60,7 @@
         android:id="@+id/text_productos"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="Nuestros productos"
+        android:text="@string/producto_nuestros_productos"
         android:textSize="20sp"
         android:gravity="center"
         android:textStyle="bold"

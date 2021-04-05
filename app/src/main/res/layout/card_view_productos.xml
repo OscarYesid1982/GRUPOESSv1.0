@@ -53,7 +53,7 @@
                 android:layout_below="@id/Imageview_Producto"
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="2dp"
-                android:text="Papel Sublimación"
+                android:text="Producto"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 android:maxLines="2"
@@ -68,7 +68,7 @@
                 android:layout_marginTop="2dp"
                 android:textSize="12sp"
                 android:maxLines="2"
-                android:text="Papel Sublimación" />
+                android:text="Descripción Producto" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

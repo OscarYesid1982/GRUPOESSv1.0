@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -13,7 +13,8 @@
         android:id="@+id/productos_AppBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.GRUPOESS.AppBarOverlay">
+        android:theme="@style/Theme.GRUPOESS.AppBarOverlay"
+        tools:ignore="MissingConstraints">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -25,202 +26,209 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="55dp">
+        tools:layout_editor_absoluteY="55dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/seleccion_rc_categorias"
             android:layout_width="match_parent"
             android:layout_height="53dp"
             android:background="@color/dark_blue"
-            android:orientation="horizontal"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="3dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:text="Productos relacionados"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:textColor="@color/dark_blue"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/selProd_recProdSimilares"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:orientation="horizontal"/>
+            android:orientation="horizontal" />
 
         <LinearLayout
-            android:id="@+id/seleccion_linear_central"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="3dp"
             android:orientation="vertical">
 
-<!--
-                <ImageView
-                    android:id="@+id/seleccion_producto_id_imagen"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="5dp"
-                    android:layout_gravity="center"
-                    tools:src="@tools:sample/avatars"/>
--->
-          <!--  <include layout="@layout/sliderproductos" />
-          -->
-            <include layout="@layout/sliderhome" />
-
-        </LinearLayout>
-        <TextView
-            android:id="@+id/seleccion_producto_id_titulo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="nombre_Producto"
-            android:layout_marginTop="15dp"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="@color/dark_blue"/>
-
             <TextView
-                android:id="@+id/seleccion_producto_id_descripcion"
                 android:layout_width="match_parent"
-                android:layout_height="165dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="25dp"
-                android:textAlignment="textStart"
-                android:text=""
-                android:textSize="14sp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/entrada"
-            android:padding="5dp"
-            android:orientation="vertical">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/Text_Valor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:text=" Precio por Unidad"
-                android:layout_marginTop="5dp"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/seleccion_producto_valor_Producto"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="90dp"
-                android:layout_marginEnd="15dp"
-                android:text=" $ "
-                android:textAlignment="textEnd"
-                android:layout_marginTop="5dp"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/seleccion_producto_Cantidad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:text=" Cantidad"
-                android:layout_marginTop="5dp"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/seleccion_cantidad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center"
+                android:text="@string/selec_producto"
                 android:textColor="@color/dark_blue"
-                android:text=" Elija una cantidad"
-                android:layout_marginTop="5dp"
-                android:textSize="14sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <Spinner
-                android:id="@+id/SP_spinnerCantidad"
-                android:layout_width="80dp"
-                android:layout_height="20dp"
-                android:layout_marginEnd="15dp"
-                android:textAlignment="textEnd"
-                android:layout_marginStart="75dp"
-                android:spinnerMode="dialog"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/selProd_recProdSimilares"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal" />
+
+            <LinearLayout
+                android:id="@+id/seleccion_linear_central"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:orientation="vertical">
+
+                <include layout="@layout/sliderhome" />
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/seleccion_producto_Total"
-                android:layout_width="wrap_content"
+                android:id="@+id/seleccion_producto_id_titulo"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:text=" Cantidad"
                 android:layout_marginTop="5dp"
-                android:textSize="14sp"
+                android:gravity="center"
+                android:text="@string/selec_producto_nombre_producto"
+                android:textColor="@color/dark_blue"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/seleccion_producto_valor_total"
-                android:layout_width="140dp"
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/seleccion_producto_id_descripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="185dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="25dp"
+                    android:text=""
+                    android:textAlignment="textStart"
+                    android:textSize="14sp" />
+
+            </androidx.core.widget.NestedScrollView>
+
+            <LinearLayout
+                android:id="@+id/linearwp"
+                android:layout_width="360dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="135dp"
-                android:layout_marginEnd="15dp"
-                android:text=" $ "
-                android:textAlignment="textEnd"
-                android:layout_marginTop="5dp"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:layout_gravity="center"
+                android:layout_marginTop="190dp"
+                android:background="@drawable/entrada"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Text_Valor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/selec_producto_precio_unidad"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/seleccion_producto_valor_Producto"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="90dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="25dp"
+                        android:text=" $ "
+                        android:textAlignment="textEnd"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/seleccion_producto_Cantidad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/selec_producto_cantidad"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/seleccion_cantidad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/selec_producto_seleccione_cantidad"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/SP_spinnerCantidad"
+                        android:layout_width="80dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="75dp"
+                        android:layout_marginEnd="15dp"
+                        android:spinnerMode="dialog"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/seleccion_producto_Total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/selec_producto_valor_total"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/seleccion_producto_valor_total"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="135dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="25dp"
+                        android:text=" $ "
+                        android:textAlignment="textEnd"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/seleccion_producto_id_compra"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:text="@string/selec_producto_boton_comprar" />
+
+
+            </LinearLayout>
+
         </LinearLayout>
-        <Button
-            android:id="@+id/seleccion_producto_id_compra"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:text="Comprar"
-            android:layout_gravity="center"/>
 
 
     </LinearLayout>
 
-    </LinearLayout>
-
-
-    </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_wp"/>
+        android:src="@drawable/ic_wp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

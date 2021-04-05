@@ -11,7 +11,7 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/introSliderViewPager2"
             android:layout_width="match_parent"
-            android:layout_height="125dp"
+            android:layout_height="165dp"
             tools:ignore="MissingConstraints" />
 
 
