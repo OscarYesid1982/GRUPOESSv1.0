@@ -10,6 +10,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.Response
@@ -42,11 +43,13 @@ class Carrito : AppCompatActivity(), AdapterView.OnItemClickListener{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.carrito_activity)
 
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
         val spiOpcEntrega = findViewById<Spinner>(R.id.carrito_spinner)
         val opcionEntrega = resources.getStringArray(R.array.opciones_entrega)
         val adaptadorEntrega = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, opcionEntrega)
         spiOpcEntrega.adapter = adaptadorEntrega
-
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
             val sendIntent = Intent()

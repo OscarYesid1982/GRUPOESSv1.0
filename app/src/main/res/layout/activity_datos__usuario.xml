@@ -1,172 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F8F8F8"
+    android:fitsSystemWindows="true"
     tools:context=".ui.login.Datos_Usuario">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/productos_AppBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.GRUPOESS.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.GRUPOESS.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
         android:id="@+id/linear_DU"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/dark_blue"
-        tools:ignore="MissingConstraints">
+        android:layout_marginTop="55dp"
+        android:background="@color/dark_blue">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="10sp">
 
         <ImageView
             android:id="@+id/du_imagenPerfil"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:padding="5dp"/>
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:src="@drawable/upload_image"
+            android:scaleType="centerCrop"/>
+
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 
     <ScrollView
         android:id="@+id/du_scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="125dp">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="210dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:layout_marginStart="20dp"
+                android:textSize="24sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:gravity="center"
                 android:textColor="@color/dark_blue"
                 android:text="Correo Registrado"/>
+
             <TextView
                 android:id="@+id/du_CorreoUsuario"
-                android:layout_width="300dp"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:hint="Correo Usuario"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:textColor="@color/dark_blue"
-                android:paddingTop="1dp"
-                android:textSize="15sp"
-                android:layout_marginStart="20dp"
-                />
-            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:layout_marginStart="20dp"
+                android:hint="Correo Usuario"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
                 android:textColor="@color/dark_blue"
-                android:text="Nombres"/>
+                android:textSize="16dp"
+                android:gravity="center"/>
+
+             <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_person"
+                        android:layout_marginTop="10dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/dark_blue"
+                        android:text="Nombres"/>
+
+             </LinearLayout>
+
             <EditText
                 android:id="@+id/du_nombreUsuario"
-                android:layout_width="300dp"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
                 android:textSize="15sp"
-                android:layout_marginStart="20dp"
+                android:inputType="text"
                 android:hint="Ingrese su nombre"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:layout_marginStart="20dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/dark_blue"
                 android:text="Apellidos"/>
+
             <EditText
                 android:id="@+id/du_apellidoUsuario"
-                android:layout_width="300dp"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
                 android:textSize="15sp"
-                android:layout_marginStart="20dp"
+                android:inputType="text"
                 android:hint="Ingrese sus apellidos"/>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_cell_phone"
+                        android:layout_marginTop="10dp"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/dark_blue"
                 android:textSize="18sp"
-
-                android:layout_marginStart="20dp"
+                android:textColor="@color/dark_blue"
                 android:text="Celular"/>
+
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/du_celularUsuario"
-                android:layout_width="300dp"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
                 android:textSize="15sp"
-                android:layout_marginStart="20dp"
                 android:hint="Ingrese número de celular"
                 android:inputType="phone"/>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_location"
+                        android:layout_marginTop="10dp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:layout_marginStart="20dp"
                 android:textColor="@color/dark_blue"
                 android:text="Dirección entrega"/>
+
+            </LinearLayout>
+
             <EditText
                 android:id="@+id/du_direccionUsuario"
-                android:layout_width="300dp"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
                 android:textSize="15sp"
-                android:layout_marginStart="20dp"
+                android:inputType="text"
                 android:hint="Ingrese su dirección"/>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_happybir"
+                        android:layout_marginTop="10dp"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textColor="@color/dark_blue"
-                android:layout_marginStart="20dp"
                 android:text="Cumpleaños"/>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="8dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="150dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginBottom="3dp"
                     android:background="@drawable/bordeimagenes">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
                         android:textColor="@color/dark_blue"
@@ -175,21 +253,25 @@
 
                     <Spinner
                         android:id="@+id/du_spinnerMes"
-                        android:layout_width="150dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="2dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
                         android:spinnerMode="dialog"/>
 
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_width="150dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginBottom="3dp"
                     android:background="@drawable/bordeimagenes">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
                         android:textColor="@color/dark_blue"
@@ -198,31 +280,51 @@
 
                     <Spinner
                         android:id="@+id/du_spinnerDia"
-                        android:layout_width="150dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="2dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
                         android:spinnerMode="dialog"/>
 
                 </LinearLayout>
             </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_person"
+                        android:layout_marginTop="10dp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:layout_marginStart="20dp"
                 android:textColor="@color/dark_blue"
-                android:text="Sexo"/>
+                android:text="Genero"/>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="90dp">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="30dp">
 
                     <RadioGroup
                         android:id="@+id/du_RadioGroup"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginEnd="89dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginLeft="30dp"
                         android:orientation="horizontal"
                         android:gravity="center"
                         android:background="@drawable/bordeimagenes">
@@ -231,31 +333,33 @@
                             android:id="@+id/du_radio_H"
                             android:layout_width="95dp"
                             android:layout_height="45dp"
-                            android:layout_marginStart="20dp"
+                            android:layout_marginRight="25dp"
                             android:textColor="@color/dark_blue"
                             android:text="Hombre"/>
                         <RadioButton
                             android:id="@+id/du_radio_M"
                             android:layout_width="95dp"
                             android:layout_height="45dp"
-                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="25dp"
                             android:textColor="@color/dark_blue"
                             android:text="Mujer"/>
-
 
                     </RadioGroup>
 
             </LinearLayout>
+
             <Button
                 android:id="@+id/du_actualizarDatos"
-                android:layout_width="270dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="25dp"
                 android:text="Actualizar datos"
-                android:layout_marginTop="-35dp"
-                android:layout_gravity="center"
+                android:layout_marginBottom="25dp"
                 android:textSize="20dp"                />
         </LinearLayout>
 
     </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

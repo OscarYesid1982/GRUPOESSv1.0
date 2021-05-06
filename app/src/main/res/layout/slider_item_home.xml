@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
     <ImageView
         android:id="@+id/imageSlideIcon"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/app_name" />
+        android:layout_height="120dp"
+        android:src="@drawable/logo_sf_ge2"/>
+    <!-- android:contentDescription="@string/app_name"/>-->
 
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

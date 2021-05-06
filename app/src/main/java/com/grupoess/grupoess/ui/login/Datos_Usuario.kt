@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.get
 import com.android.volley.Request
 import com.android.volley.Response
@@ -24,6 +25,9 @@ class Datos_Usuario : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_datos__usuario)
+
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
         du_CorreoUsuario.text = u.get_correo().toString()
 

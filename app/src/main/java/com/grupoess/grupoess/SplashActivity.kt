@@ -10,7 +10,9 @@ import com.grupoess.grupoess.ui.login.LoginActivity
 import com.grupoess.grupoess.ui.login.RegistroActivity
 import com.grupoess.grupoess.ui.productos.Historico_Compras_Activity
 import com.grupoess.grupoess.ui.productos.Productos
+import dmax.dialog.SpotsDialog
 
+var mDialog: android.app.AlertDialog? = null
 
 @Suppress("DEPRECATION")
 class SplashActivity : AppCompatActivity() {
@@ -20,8 +22,14 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+        mDialog = SpotsDialog.Builder()
+            .setContext(this)
+            .setMessage("Espere un momento")
+            .setCancelable(false).build()
+
 
         Handler().postDelayed({
+            mDialog?.show()
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }, tiempo)

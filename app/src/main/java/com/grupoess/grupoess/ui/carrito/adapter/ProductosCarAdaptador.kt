@@ -16,11 +16,13 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.grupoess.grupoess.MainActivity
 import com.grupoess.grupoess.R
 import com.grupoess.grupoess.model.Productos_object
 import com.grupoess.grupoess.model.Seleccion
 import com.grupoess.grupoess.model.User
 import com.grupoess.grupoess.ui.carrito.Carrito
+import com.grupoess.grupoess.ui.home.HomeActivity
 import com.grupoess.grupoess.ui.productos.Seleccion_Producto
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.carrito_activity.*
@@ -59,8 +61,9 @@ class ProductosCarAdaptador(val datos: ArrayList<Productos_object>, val context:
 
         holder.eliminar.setOnClickListener {
             eliminar_productoCompra(datos.get(position).id.toString())
+            val intent = Intent(context, HomeActivity::class.java)
+            context.startActivity(intent);
             Toast.makeText(context, "El producto se ha eliminado del carrito", Toast.LENGTH_SHORT).show()
-
         }
 
     }

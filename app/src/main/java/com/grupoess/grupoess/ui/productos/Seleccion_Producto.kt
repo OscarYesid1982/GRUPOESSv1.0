@@ -24,6 +24,7 @@ import com.grupoess.grupoess.ui.carrito.Carrito
 import com.grupoess.grupoess.ui.home.adapter.IntroSlide
 import com.grupoess.grupoess.ui.home.adapter.SliderHomeAdapter
 import com.grupoess.grupoess.ui.login.Datos_Usuario
+import dmax.dialog.SpotsDialog
 import kotlinx.android.synthetic.main.seleccion_producto.*
 import kotlinx.android.synthetic.main.sliderhome.introSliderViewPager2
 import org.json.JSONArray
@@ -31,9 +32,16 @@ import org.json.JSONObject
 
 class Seleccion_Producto : AppCompatActivity() {
 
+    var mDialog: android.app.AlertDialog? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.seleccion_producto)
+
+        mDialog = SpotsDialog.Builder()
+            .setContext(this)
+            .setMessage("Espere un momento")
+            .setCancelable(false).build()
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
             val sendIntent = Intent()
@@ -55,11 +63,12 @@ class Seleccion_Producto : AppCompatActivity() {
 
 
         seleccion_producto_id_compra.setOnClickListener {
+            mDialog?.show()
+
 
             if(SP_spinnerCantidad.getSelectedItem().toString() != "Elija cantidad"){
                 var cat = Seleccion();
                 var u = User()
-
 
                 //se consulta el servicio
                 var queue = Volley.newRequestQueue(this)
@@ -86,6 +95,7 @@ class Seleccion_Producto : AppCompatActivity() {
                 }
                 queue.add(postRequest)
 
+
             }
             else{
                 Toast.makeText(this, "Debe seleccionar cantidad de producto a comprar",
@@ -104,14 +114,18 @@ class Seleccion_Producto : AppCompatActivity() {
 
         when (item.itemId) {
             R.id.Car -> {
+                mDialog?.show()
                 val intent = Intent(this, Carrito::class.java)
                 startActivityForResult(intent, 0)
+                finish()
             }
             R.id.Usuario -> {
+                mDialog?.show()
                 val intent = Intent(this, Datos_Usuario::class.java)
                 startActivityForResult(intent, 0)
             }
             R.id.HistoricoCompras -> {
+                mDialog?.show()
                 val intent = Intent(this, Historico_Compras_Activity::class.java)
                 startActivityForResult(intent, 0)
             }
@@ -121,7 +135,8 @@ class Seleccion_Producto : AppCompatActivity() {
 
     private fun comprobar_respuesta(response: String?) {
 
-        Toast.makeText(this, "Producto agregado del carrito", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Producto agregado al carrito", Toast.LENGTH_SHORT).show()
+        mDialog?.dismiss()
     }
 
     private fun traer_producto_seleccionado(id: Int) {

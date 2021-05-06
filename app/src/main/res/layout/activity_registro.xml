@@ -1,50 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
     android:layout_height="match_parent"
     tools:context=".ui.login.RegistroActivity">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="-25dp"
-            android:orientation="vertical"
-            app:layout_goneMarginTop="0dp">
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/registro_LogoImagen"
                 android:layout_width="match_parent"
-                android:layout_height="222dp"
-                android:src="@drawable/logo2_app" />
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@drawable/logo_sf_ge2" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp">
 
             <TextView
                 android:id="@+id/registro_TituloActividad"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="-15dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
                 android:gravity="center"
                 android:text="@string/Registrate"
                 android:textColor="#000000"
-                android:textSize="24sp"
+                android:textSize="28sp"
                 android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="10dp"
                 android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_person"
+                    android:layout_marginTop="10dp"/>
 
                 <EditText
                     android:id="@+id/registro_Nombre"
-                    android:layout_width="140dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="24dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:layout_marginTop="5dp"
                     android:gravity="start"
                     android:hint="@string/registro_Nombre"
@@ -52,43 +74,76 @@
 
                 <EditText
                     android:id="@+id/registro_Apellidos"
-                    android:layout_width="160dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="14dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:layout_marginTop="5dp"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginLeft="20dp"
                     android:gravity="start"
                     android:hint="@string/registro_Apellido"
                     android:inputType="text" />
 
             </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center">
 
-            <EditText
-                android:id="@+id/registro_Email"
-                android:layout_width="320dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="5dp"
-                android:gravity="start"
-                android:hint="@string/registro_Direccion_Email"
-                android:inputType="textEmailAddress" />
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_email_24"
+                        android:layout_marginTop="10dp"/>
 
-            <EditText
-                android:id="@+id/registro_contrasena"
-                android:layout_width="320dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="5dp"
-                android:gravity="start"
-                android:hint="@string/registro_Contraseña"
-                android:inputType="textPassword" />
+                    <EditText
+                        android:id="@+id/registro_Email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginTop="5dp"
+                        android:hint="@string/registro_Direccion_Email"
+                        android:inputType="textEmailAddress" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_key_24"
+                        android:layout_marginTop="10dp"/>
+
+                    <EditText
+                        android:id="@+id/registro_contrasena"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginTop="5dp"
+                        android:hint="@string/registro_Contraseña"
+                        android:inputType="textPassword" />
+
+                </LinearLayout>
 
             <Button
                 android:id="@+id/registro_CrearCuenta"
-                android:layout_width="307dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
                 android:background="@drawable/borde_boton_facebook"
                 android:text="@string/Boton_CrearCuenta"
                 android:textAllCaps="false"
@@ -96,18 +151,21 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:layout_width="300dp"
-                android:layout_height="44dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
                 android:layout_gravity="center"
-                android:src="@drawable/linea_login" />
-
+                android:src="@drawable/linea_login"/>
 
             <Button
                 android:id="@+id/registro_InicioSesion"
-                android:layout_width="307dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
                 android:background="@drawable/borde_boton_crearcuenta"
                 android:text="@string/registro_TienesCuenta"
                 android:textAllCaps="false"
@@ -118,9 +176,10 @@
             <TextView
                 android:id="@+id/registro_Condiciones"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="24dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="85dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
                 android:gravity="center"
                 android:text="@string/Boton_Condiciones"
                 android:textColor="#000000"
@@ -129,17 +188,20 @@
             <TextView
                 android:id="@+id/registro_Condiciones2"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="20dp"
                 android:gravity="center"
                 android:text="@string/Boton_Condiciones2"
                 android:textColor="#0575aa"
                 android:textSize="14sp" />
 
+            </LinearLayout>
+
+            </ScrollView>
+
         </LinearLayout>
 
-    </ScrollView>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

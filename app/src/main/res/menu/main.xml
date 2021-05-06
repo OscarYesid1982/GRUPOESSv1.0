@@ -36,6 +36,15 @@
                 android:title="Mis compras"
                 android:visible="true"
                 app:showAsAction="always" />
+
+            <!--
+            <item
+                android:id="@+id/logOut"
+                android:icon="@drawable/ic_logout"
+                android:title="Cerrar sesión"
+                android:visible="true"
+                app:showAsAction="always" />
+             -->
         </menu>
 
 

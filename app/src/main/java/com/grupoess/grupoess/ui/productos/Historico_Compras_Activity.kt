@@ -79,17 +79,17 @@ class Historico_Compras_Activity : AppCompatActivity() {
         var queue = Volley.newRequestQueue(this)
         var url = "https://imbcol.com/grupoess/traer_productos.php"
         val postRequest: StringRequest = object : StringRequest(
-            Request.Method.POST, url,
-            Response.Listener { response -> // response
-                //el texto que viene lo convertimos de string a json
-                covertir_json2(response)
-            },
-            Response.ErrorListener { // error
-                Log.i(
-                    "Alerta",
-                    "Error al intentar cargar las variables contacte con el administrador"
-                )
-            }
+                Request.Method.POST, url,
+                Response.Listener { response -> // response
+                    //el texto que viene lo convertimos de string a json
+                    covertir_json2(response)
+                },
+                Response.ErrorListener { // error
+                    Log.i(
+                            "Alerta",
+                            "Error al intentar cargar las variables contacte con el administrador"
+                    )
+                }
         ) {
             override fun getParams(): Map<String, String> {
                 val params: MutableMap<String, String> = HashMap()
@@ -123,21 +123,19 @@ class Historico_Compras_Activity : AppCompatActivity() {
             }
             else{
                 data_arraylist.add(
-                    Productos_object2(
-                        data_utf8.get_text(data_product["imagen"].toString()),
-                        data_utf8.get_text(data_product["name"].toString()),
-                        data_product["id_wordpress"].toString().toInt(),
-                        imagen,
-                        nombre,
-                        id.toInt()
-
-                    )
-
+                        Productos_object2(
+                                data_utf8.get_text(data_product["imagen"].toString()),
+                                data_utf8.get_text(data_product["name"].toString()),
+                                data_product["id_wordpress"].toString().toInt(),
+                                imagen,
+                                nombre,
+                                id.toInt()
+                        )
                 )
             }
         }
-        frHome_recyclerProductos.layoutManager = LinearLayoutManager(this, 0, false)
-        frHome_recyclerProductos.adapter = ProductosAdaptador2(data_arraylist, this)
+        rcHist_recyclerProductos.layoutManager = LinearLayoutManager(this, 0, false)
+        rcHist_recyclerProductos.adapter = ProductosAdaptador2(data_arraylist, this)
 
     }
 
@@ -150,17 +148,17 @@ class Historico_Compras_Activity : AppCompatActivity() {
         var queue = Volley.newRequestQueue(this)
         var url = "https://imbcol.com/grupoess/historico_compras.php"
         val postRequest: StringRequest = object : StringRequest(Request.Method.POST, url,
-            Response.Listener { response -> // response
-                //el texto que viene lo convertimos de string a json
-                covertir_json(response)
+                Response.Listener { response -> // response
+                    //el texto que viene lo convertimos de string a json
+                    covertir_json(response)
 
-            },
-            Response.ErrorListener { // error
-                Log.i(
-                    "Alerta",
-                    "Error al intentar cargar las variables contacte con el administrador"
-                )
-            }
+                },
+                Response.ErrorListener { // error
+                    Log.i(
+                            "Alerta",
+                            "Error al intentar cargar las variables contacte con el administrador"
+                    )
+                }
         ) {
             override fun getParams(): Map<String, String> {
                 val params: MutableMap<String, String> = HashMap()
@@ -178,7 +176,7 @@ class Historico_Compras_Activity : AppCompatActivity() {
         var data_arraylist: ArrayList<Historico_Productos_object> = ArrayList()
         val data_ini = JSONObject(response)
         val data = JSONArray(data_ini["data"].toString())
-        
+
         var data_utf8 = convertir_utd8();
 
         for (i in 0 until data.length()) {
@@ -186,12 +184,12 @@ class Historico_Compras_Activity : AppCompatActivity() {
 
 
             data_arraylist.add(
-                Historico_Productos_object(
-                    data_utf8.get_text(data_product["fecha_compra"].toString()),
-                    data_utf8.get_text(data_product["id"].toString()).toInt(),
-                    data_utf8.get_text(data_product["total_productos"].toString()),
-                    "$ " + data_utf8.get_text(data_product["valor"].toString()) + " COP",
-                )
+                    Historico_Productos_object(
+                            data_utf8.get_text(data_product["fecha_compra"].toString()),
+                            data_utf8.get_text(data_product["id"].toString()).toInt(),
+                            data_utf8.get_text(data_product["total_productos"].toString()),
+                            "$ " + data_utf8.get_text(data_product["valor"].toString()) + " COP",
+                    )
             )
         }
 

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:background="#F8F8F8"
     tools:context=".ui.productos.Historico_Compras_Activity">
@@ -27,46 +28,60 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="185dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="60dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/tituloProductos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textAlignment="center"
             android:text="Nuestros Productos"
             android:textSize="20dp"
             android:layout_marginTop="-3dp"
             android:gravity="center"
             android:textColor="@color/dark_blue"
-            android:layout_marginStart="5dp"
             android:textStyle="bold"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/frHome_recyclerProductos"
+            android:id="@+id/rcHist_recyclerProductos"
             android:layout_width="match_parent"
             android:layout_height="170dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
             android:orientation="horizontal"
             android:layout_marginTop="5dp"/>
 
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="245dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="255dp">
 
-        <TextView
-            android:id="@+id/tituloProductos2"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Historico de compras"
-            android:textSize="20dp"
-            android:gravity="center"
-            android:textColor="@color/dark_blue"
-            android:layout_marginStart="5dp"
-            android:textStyle="bold"/>
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tituloProductos2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:textAlignment="center"
+                android:text="Historico de compras"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:textColor="@color/dark_blue"
+                android:textStyle="bold"/>
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -77,14 +92,18 @@
                 android:orientation="vertical"/>
 
 
-    </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
+        android:layout_gravity="bottom|right"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_wp"/>
+        android:src="@drawable/ic_cell_phone"
+        tools:ignore="MissingConstraints"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

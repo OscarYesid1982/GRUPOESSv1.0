@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.Response
@@ -35,6 +36,9 @@ class Historico_Carrito : AppCompatActivity(), AdapterView.OnItemClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.carrito_activity)
 
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
             val sendIntent = Intent()
             sendIntent.setAction(Intent.ACTION_VIEW)
@@ -55,12 +59,7 @@ class Historico_Carrito : AppCompatActivity(), AdapterView.OnItemClickListener {
         var u = User()
         car_dirPedido.text = u.get_direccion()
 
-
-
         var seleccion = Seleccion()
-
-
-
 
         //se consulta el servicio
         var queue = Volley.newRequestQueue(this)

@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.grupoess.grupoess.ProviderType
 import com.grupoess.grupoess.R
 import com.grupoess.grupoess.alertas.Alertas
+import dmax.dialog.SpotsDialog
 import kotlinx.android.synthetic.main.activity_registro.*
 import org.json.JSONObject
 
@@ -27,12 +28,18 @@ import org.json.JSONObject
 class RegistroActivity : AppCompatActivity() {
 
     private var mAuth: FirebaseAuth? = null
+    var mDialog: android.app.AlertDialog? = null
 
     var mensaje_Alertas = Alertas()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
+
+        mDialog = SpotsDialog.Builder()
+            .setContext(this)
+            .setMessage("Espere un momento")
+            .setCancelable(false).build()
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -53,6 +60,7 @@ class RegistroActivity : AppCompatActivity() {
     private fun registroUsuario() {
 
         registro_CrearCuenta.setOnClickListener {
+
             //Registro Firebase
             if (registro_contrasena.length()<7){
                     mensaje_Alertas.mensaje(
@@ -73,7 +81,7 @@ class RegistroActivity : AppCompatActivity() {
             }
             else{
                 //Registro Firebase
-
+                mDialog?.show()
                 FirebaseAuth.getInstance()
                     .createUserWithEmailAndPassword(registro_Email.text.toString(),registro_contrasena.text.toString())
                     .addOnCompleteListener {
@@ -84,31 +92,6 @@ class RegistroActivity : AppCompatActivity() {
                         showAlert()
                     }
                 }
-
-/*
-                mAuth?.createUserWithEmailAndPassword(registro_Email.text.toString(),registro_contrasena.text.toString())
-                    ?.addOnCompleteListener(this, object : OnCompleteListener<AuthResult?> {
-                        override fun onComplete(task: Task<AuthResult?>) {
-                            if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                //Toast.makeText(this@RegistroActivity,"Inicio", Toast.LENGTH_SHORT).show()
-                                val user: FirebaseUser? = mAuth?.getCurrentUser()
-
-                            } else {
-                                // If sign in fails, display a message to the user.
-
-                                Toast.makeText(this@RegistroActivity,task.getException().toString(),Toast.LENGTH_LONG).show()
-
-                            }
-
-                            // ...
-                        }
-
-                    })
-
-
- */
-
                 //Registro MySql
                 var queue = Volley.newRequestQueue(this)
                 var url = "https://imbcol.com/grupoess/registrar_usuario_v1.php"

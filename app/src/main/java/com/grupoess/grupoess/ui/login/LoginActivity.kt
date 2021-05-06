@@ -1,27 +1,24 @@
 package com.grupoess.grupoess.ui.login
 
+
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-
-
-
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthCredential
@@ -32,31 +29,37 @@ import com.grupoess.grupoess.ProviderType
 import com.grupoess.grupoess.R
 import com.grupoess.grupoess.model.User
 import com.grupoess.grupoess.ui.SeleccionInico
-import com.grupoess.grupoess.ui.home.HomeActivity
+import dmax.dialog.SpotsDialog
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_login.login_Condiciones2
 import org.json.JSONArray
 import org.json.JSONObject
 
 class LoginActivity : AppCompatActivity() {
 
     private  val GOOGLE_SIGN_IN = 100
+    var mDialog: android.app.AlertDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        if (leer_user() == true){
 
+        mDialog = SpotsDialog.Builder()
+            .setContext(this)
+            .setMessage("Espere un momento")
+            .setCancelable(false).build()
+
+        if (leer_user() == true){
             val i = Intent(this, SeleccionInico::class.java)
             startActivity(i)
+            finish()
         }
-
-
         login_Condiciones2.setOnClickListener {
+            mDialog?.show()
             val uri: Uri = Uri.parse("https://grupoess.com/terminos-y-condiciones/")
             val intent = Intent(Intent.ACTION_VIEW, uri)
             startActivity(intent)
+            finish()
         }
         login_botonCrearCuenta.setOnClickListener {
             val i = Intent(this, RegistroActivity::class.java)
@@ -73,6 +76,7 @@ class LoginActivity : AppCompatActivity() {
             googleClient.signOut()
 
             startActivityForResult(googleClient.signInIntent, GOOGLE_SIGN_IN)
+            finish()
 
         }
 
@@ -86,19 +90,29 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         login_LinearLayout.visibility = View.VISIBLE
     }
+    private fun mDialogBox(){
+        mDialog = SpotsDialog.Builder()
+            .setContext(this)
+            .setMessage("Espere un momento")
+            .setCancelable(false).build()
+    }
 
     private fun inicioSesion() {
 
         login_botonIniciosesion.setOnClickListener {
             if (login_Email.text.isNotEmpty() && login_Contrasena.text.isNotEmpty()) {
+
                 //Login Firebase
                 FirebaseAuth.getInstance()
-                    .signInWithEmailAndPassword(login_Email.text.toString(),
-                        login_Contrasena.text.toString()).addOnCompleteListener {
+                    .signInWithEmailAndPassword(
+                        login_Email.text.toString(),
+                        login_Contrasena.text.toString()
+                    ).addOnCompleteListener {
                     if (it.isSuccessful) {
                         showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
+                        mDialog?.show()
                     } else {
-
+                        mDialog?.dismiss()
                         showAlert()
                     }
                 }
@@ -114,7 +128,7 @@ class LoginActivity : AppCompatActivity() {
         val dialog : AlertDialog = builder.create()
         dialog.show()
     }
-    fun showHome(email:String, provider: ProviderType){
+    fun showHome(email: String, provider: ProviderType){
         val homeIntent:Intent = Intent(this, MainActivity::class.java).apply {
             putExtra("email", email)
             putExtra("provider", provider.name)
@@ -122,9 +136,10 @@ class LoginActivity : AppCompatActivity() {
         }
         startActivity(homeIntent)
     }
+    @SuppressLint("WorldReadableFiles")
     private fun guardar_data(data: String, id: String) {
 
-        val sharpref = getPreferences(Context.MODE_WORLD_READABLE)
+        val sharpref = getPreferences(Context.MODE_PRIVATE)
         val editor = sharpref.edit()
         editor.putString("user", data)
         editor.commit()
@@ -139,18 +154,26 @@ class LoginActivity : AppCompatActivity() {
 
 
             val u = User()
-            u.set_user(data_user["id"].toString(), data_user["nombre"].toString(),data_user["apellido"].toString(),
-                    data_user["direccion"].toString(),data_user["telefono"].toString(),data_user["correo"].toString(),
-                    data_user["fecha_ultimo_ingreso"].toString())
+            u.set_user(
+                data_user["id"].toString(),
+                data_user["nombre"].toString(),
+                data_user["apellido"].toString(),
+                data_user["direccion"].toString(),
+                data_user["telefono"].toString(),
+                data_user["correo"].toString(),
+                data_user["fecha_ultimo_ingreso"].toString()
+            )
         }
         catch (e: Exception){
 
 
             val data_arrayList = JSONObject(id)
             val u = User()
-            u.set_user(data_arrayList["id"].toString(), "","",
-                    "","",data,
-                    "")
+            u.set_user(
+                data_arrayList["id"].toString(), "", "",
+                "", "", data,
+                ""
+            )
         }
 
 
@@ -166,7 +189,10 @@ class LoginActivity : AppCompatActivity() {
                 val account: GoogleSignInAccount? = task.getResult(ApiException::class.java)
 
                 if (account != null){
-                    val credential: AuthCredential = GoogleAuthProvider.getCredential(account.idToken, null)
+                    val credential: AuthCredential = GoogleAuthProvider.getCredential(
+                        account.idToken,
+                        null
+                    )
 
                     FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener {
                         if (it.isSuccessful) {
@@ -186,7 +212,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun sesion() {
-        val prefs : SharedPreferences = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+        val prefs : SharedPreferences = getSharedPreferences(
+            getString(R.string.prefs_file),
+            Context.MODE_PRIVATE
+        )
         val email:String? = prefs.getString("email", null)
         val provider:String? = prefs.getString("provider", null)
 
@@ -202,29 +231,34 @@ class LoginActivity : AppCompatActivity() {
 
         if(valor != "vacio"){
             guardarUsuario(valor.toString())
+            mDialog?.show()
 
             return true
         }else{
+            mDialog?.dismiss()
             return false
         }
 
 
     }
-    private fun guardarUsuario(correo:String){
+    private fun guardarUsuario(correo: String){
         //se consulta el servicio
         var queue = Volley.newRequestQueue(this)
         queue.getCache().clear();
         var url = "https://imbcol.com/grupoess/logueo.php"
 
         val postRequest: StringRequest = object : StringRequest(
-                Request.Method.POST, url,
-                Response.Listener { response -> // response
+            Request.Method.POST, url,
+            Response.Listener { response -> // response
 
-                    guardar_data(correo,response) //Guarda en cache
-                },
-                Response.ErrorListener { // error
-                    Log.i("Alerta","Error al intentar cargar las variables contacte con el administrador")
-                }
+                guardar_data(correo, response) //Guarda en cache
+            },
+            Response.ErrorListener { // error
+                Log.i(
+                    "Alerta",
+                    "Error al intentar cargar las variables contacte con el administrador"
+                )
+            }
         ) {
             override fun getParams(): Map<String, String> {
                 val params: MutableMap<String, String> = HashMap()
@@ -240,6 +274,4 @@ class LoginActivity : AppCompatActivity() {
         }
         queue.add(postRequest)
     }
-
-
 }
