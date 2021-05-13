@@ -50,6 +50,10 @@ class LoginActivity : AppCompatActivity() {
             .setCancelable(false).build()
 
         if (leer_user() == true){
+
+            val queue = Volley.newRequestQueue(this)
+            queue.getCache().clear();
+
             val i = Intent(this, SeleccionInico::class.java)
             startActivity(i)
             finish()
@@ -67,6 +71,9 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
         login_BotonGoogle.setOnClickListener {
+            //val queue = Volley.newRequestQueue(this)
+            //queue.getCache().clear();
+
             val googleConf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -76,7 +83,7 @@ class LoginActivity : AppCompatActivity() {
             googleClient.signOut()
 
             startActivityForResult(googleClient.signInIntent, GOOGLE_SIGN_IN)
-            finish()
+            //finish()
 
         }
 
@@ -90,12 +97,15 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         login_LinearLayout.visibility = View.VISIBLE
     }
+    /*
     private fun mDialogBox(){
         mDialog = SpotsDialog.Builder()
             .setContext(this)
             .setMessage("Espere un momento")
             .setCancelable(false).build()
     }
+
+     */
 
     private fun inicioSesion() {
 
@@ -143,6 +153,7 @@ class LoginActivity : AppCompatActivity() {
         val editor = sharpref.edit()
         editor.putString("user", data)
         editor.commit()
+        //editor.apply()
 
 
         Log.i("qqqq", id.toString())
@@ -225,17 +236,17 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun leer_user(): Boolean? {
+    private fun leer_user(): Boolean {
         val sharpref = getPreferences(Context.MODE_PRIVATE)
         val valor = sharpref.getString("user", "vacio")
 
         if(valor != "vacio"){
             guardarUsuario(valor.toString())
-            mDialog?.show()
+            //mDialog?.show()
 
             return true
         }else{
-            mDialog?.dismiss()
+           // mDialog?.dismiss()
             return false
         }
 
@@ -243,9 +254,9 @@ class LoginActivity : AppCompatActivity() {
     }
     private fun guardarUsuario(correo: String){
         //se consulta el servicio
-        var queue = Volley.newRequestQueue(this)
+        val queue = Volley.newRequestQueue(this)
         queue.getCache().clear();
-        var url = "https://imbcol.com/grupoess/logueo.php"
+        val url = "https://imbcol.com/grupoess/logueo.php"
 
         val postRequest: StringRequest = object : StringRequest(
             Request.Method.POST, url,
